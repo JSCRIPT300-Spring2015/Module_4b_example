@@ -100,16 +100,6 @@ function removeBook(id) {
 	bookList.splice(index, 1);
 }
 
-function updateBook(book) {
-	var existingBook = getBook(book._id);
-
-	existingBook.title = book.title;
-	existingBook.author = book.author;
-	existingBook.genre = book.genre
-
-	return existingBook;
-}
-
 module.exports = {
 	getBooks: getBooks,
 	getBook: getBook,
