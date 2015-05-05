@@ -70,3 +70,50 @@ var bookList = [
 		read: false
 	}
 ];
+
+var _ = require('underscore');
+
+function getBooks() {
+	return bookList;
+}
+
+function getBook(id) {
+	console.log('id: ', id);
+	id = parseInt(id, 10);
+	return _.find(bookList, function (book) {
+		console.log('book._id: ', book._id);
+		return book._id === id;
+	});
+}
+
+function addBook(book) {
+	if (book) {
+		bookList.push(book);
+	}
+}
+
+function removeBook(id) {
+	var id = parseInt(id, 10);
+	var index = _.findIndex(bookList, function (book) {
+		return book._id === id;
+	});
+	bookList.splice(index, 1);
+}
+
+function updateBook(book) {
+	var existingBook = getBook(book._id);
+
+	existingBook.title = book.title;
+	existingBook.author = book.author;
+	existingBook.genre = book.genre
+
+	return existingBook;
+}
+
+module.exports = {
+	getBooks: getBooks,
+	getBook: getBook,
+	addBook: addBook,
+	removeBook: removeBook,
+	updateBook: updateBook
+};
