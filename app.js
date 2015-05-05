@@ -36,19 +36,6 @@ app.post('/books', function (request, response) {
 	}
 });
 
-app.put('/books/:id', function (request, response) {
-	var book = books.getBook(request.params.id);
-	var updatedBook;
-
-	if (book && request.body) {
-		request.body._id = book._id;
-		updatedBook = books.updateBook(request.body);
-		response.send(updatedBook);
-	} else {
-		response.status(404).json('Could not locate book for update');
-	}
-});
-
 app.delete('/books/:id', function (request, response) {
 	var bookId = request.params.id;
 
