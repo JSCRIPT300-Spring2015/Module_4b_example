@@ -104,6 +104,5 @@ module.exports = {
 	getBooks: getBooks,
 	getBook: getBook,
 	addBook: addBook,
-	removeBook: removeBook,
-	updateBook: updateBook
+	removeBook: removeBook
 };
